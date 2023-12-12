@@ -5,23 +5,17 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoStarbucks from '@/images/logos/starbucks.svg'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+import pomodoroImage from '@/images/portfolio/pomodoro.png'
+import passwordGeneratorImage from '@/images/portfolio/password-generator.png'
+import reactWordleImage from '@/images/portfolio/react-wordle.png'
+import dictionaryImage from '@/images/portfolio/dictionary.png'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -238,15 +232,58 @@ function Resume() {
   )
 }
 
-function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+function Carousel() {
+  const projects = [
+    {
+      name: 'Pomodoro',
+      image: pomodoroImage,
+      url: 'https://pomodoro-di.vercel.app/',
+    },
+    {
+      name: 'Secure Password Generator',
+      image: passwordGeneratorImage,
+      url: 'https://password-generator-di.vercel.app/',
+    },
+    {
+      name: 'React Wordle',
+      image: reactWordleImage,
+      url: 'https://react-wordle-di.vercel.app/',
+    },
+    {
+      name: 'Dictionary',
+      image: dictionaryImage,
+      url: 'https://dictionary-di.vercel.app/',
+    },
+  ]
+
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', '-rotate-2', 'rotate-2']
+
+  const externalLinkIcon = (
+    <svg
+      width="24px"
+      height="24px"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      fill="none"
+    >
+      <path
+        d="M10 5H8.2c-1.12 0-1.68 0-2.108.218a1.999 1.999 0 0 0-.874.874C5 6.52 5 7.08 5 8.2v7.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874c.427.218.987.218 2.105.218h7.606c1.118 0 1.677 0 2.104-.218.377-.192.683-.498.875-.874.218-.428.218-.987.218-2.105V14m1-5V4m0 0h-5m5 0-7 7"
+        stroke="#fff"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
 
   return (
-    <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
-          <div
+    <div className="mt-4 sm:mt-8">
+      <div className="my-4 flex gap-5 overflow-auto py-8 sm:gap-8">
+        {projects.map(({ image, url, name }, imageIndex) => (
+          <a
             key={image.src}
+            href={url}
+            target="_blank"
             className={clsx(
               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
               rotations[imageIndex % rotations.length],
@@ -254,14 +291,31 @@ function Photos() {
           >
             <Image
               src={image}
-              alt=""
+              alt={name}
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
             />
-          </div>
+            <div className="absolute inset-0 grid place-items-center rounded-xl border-2 border-teal-500 bg-black p-2 text-center text-xl font-bold uppercase text-white opacity-0 transition-opacity duration-500 hover:opacity-90 sm:rounded-2xl">
+              <span className="flex flex-col items-center">
+                {name}
+                {externalLinkIcon}
+              </span>
+            </div>
+          </a>
         ))}
       </div>
     </div>
+  )
+}
+
+function Portfolio() {
+  return (
+    <article>
+      <Container className="mt-16">
+        <h2 className="text-3xl font-bold">Recent work</h2>
+      </Container>
+      <Carousel />
+    </article>
   )
 }
 
@@ -273,25 +327,16 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software designer, founder, and amateur astronaut.
+            David Inoa <br />
+            Web Engineer
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m David, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Reprehenderit rem iste delectus consequatur modi suscipit
+            reiciendis, ipsam tempore, eum nulla labore doloribus non iusto at
+            excepturi voluptate, numquam maxime placeat!
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://twitter.com"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
-            />
-            <SocialLink
-              href="https://instagram.com"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
             <SocialLink
               href="https://github.com"
               aria-label="Follow on GitHub"
@@ -305,7 +350,7 @@ export default async function Home() {
           </div>
         </div>
       </Container>
-      <Photos />
+      <Portfolio />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
