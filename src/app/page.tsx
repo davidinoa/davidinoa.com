@@ -325,7 +325,7 @@ function Portfolio() {
 
 function Testimonials() {
   return (
-    <section className="mt-10 rounded-2xl border border-zinc-100 py-4 dark:border-zinc-700/40 sm:py-8">
+    <section className="mt-10 rounded-2xl border border-zinc-100 py-8 dark:border-zinc-700/40">
       <div className="mx-auto max-w-7xl px-10 ">
         <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col pb-10 sm:pb-8 lg:pb-0 lg:pr-8 xl:pr-20">
@@ -342,7 +342,7 @@ function Testimonials() {
                   efficiency and elegance.”
                 </p>
               </blockquote>
-              <figcaption className="mt-10 flex items-center gap-x-6">
+              <figcaption className="mt-6 flex items-center gap-x-6">
                 <Image
                   className="h-14 w-14 rounded-full bg-gray-800"
                   src={travisAvatar}
@@ -371,7 +371,7 @@ function Testimonials() {
                   overall awesome person.”
                 </p>
               </blockquote>
-              <figcaption className="mt-10 flex items-center gap-x-6">
+              <figcaption className="mt-6 flex items-center gap-x-6">
                 <Image
                   className="h-14 w-14 rounded-full bg-gray-800"
                   src={wyattAvatar}
