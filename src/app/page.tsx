@@ -337,7 +337,7 @@ function Portfolio() {
   return (
     <article>
       <Container className="mt-16">
-        <h2 className="text-3xl font-bold">Recent work</h2>
+        <h2 className="text-3xl font-bold">Recent projects</h2>
       </Container>
       <div className="max-w-screen grid place-items-center overflow-auto">
         <Carousel />
@@ -452,7 +452,13 @@ export default async function Home() {
         <Testimonials />
       </Container>
       <Portfolio />
-      <Container className="mt-24 md:mt-28">
+      <Container className="m-auto mt-24 md:mt-28 ">
+        <div className="grid gap-24 md:grid-cols-2">
+          <Resume />
+          <Newsletter />
+        </div>
+      </Container>
+      {/* <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
@@ -464,7 +470,7 @@ export default async function Home() {
             <Resume />
           </div>
         </div>
-      </Container>
+      </Container> */}
     </>
   )
 }
