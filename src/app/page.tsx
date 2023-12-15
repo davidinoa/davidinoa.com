@@ -3,7 +3,6 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import blackrockLogo from '@/images/resume/blackrock.jpeg'
@@ -11,8 +10,6 @@ import inspiratoLogo from '@/images/resume/inspirato.jpeg'
 import yieldxLogo from '@/images/resume/yieldx.jpeg'
 import geniusPlazaLogo from '@/images/resume/genius-plaza.webp'
 import dollarShaveClubLogo from '@/images/resume/dollar-shave-club.png'
-import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
-import { formatDate } from '@/lib/formatDate'
 import pomodoroImage from '@/images/portfolio/pomodoro.png'
 import passwordGeneratorImage from '@/images/portfolio/password-generator.png'
 import reactWordleImage from '@/images/portfolio/react-wordle.png'
@@ -79,20 +76,20 @@ function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function Article({ article }: { article: ArticleWithSlug }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
-  )
-}
+// function Article({ article }: { article: ArticleWithSlug }) {
+//   return (
+//     <Card as="article">
+//       <Card.Title href={`/articles/${article.slug}`}>
+//         {article.title}
+//       </Card.Title>
+//       <Card.Eyebrow as="time" dateTime={article.date} decorate>
+//         {formatDate(article.date)}
+//       </Card.Eyebrow>
+//       <Card.Description>{article.description}</Card.Description>
+//       <Card.Cta>Read article</Card.Cta>
+//     </Card>
+//   )
+// }
 
 function SocialLink({
   icon: Icon,
@@ -145,13 +142,13 @@ interface Role {
 }
 
 function Role({ role }: { role: Role }) {
-  let startLabel =
+  const startLabel =
     typeof role.start === 'string' ? role.start : role.start.label
-  let startDate =
+  const startDate =
     typeof role.start === 'string' ? role.start : role.start.dateTime
 
-  let endLabel = typeof role.end === 'string' ? role.end : role.end.label
-  let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
+  const endLabel = typeof role.end === 'string' ? role.end : role.end.label
+  const endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
 
   return (
     <li className="flex gap-4">
@@ -191,7 +188,7 @@ function Role({ role }: { role: Role }) {
 }
 
 function Resume() {
-  let resume: Array<Role> = [
+  const resume: Array<Role> = [
     {
       company: 'Inspirato',
       title: 'UI Engineer',
@@ -281,7 +278,13 @@ function Carousel() {
     },
   ]
 
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', '-rotate-2', 'rotate-2']
+  const rotations = [
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+  ]
 
   const externalLinkIcon = (
     <svg
@@ -418,7 +421,7 @@ function Testimonials() {
 }
 
 export default async function Home() {
-  let articles = (await getAllArticles()).slice(0, 4)
+  // const articles = (await getAllArticles()).slice(0, 4)
 
   return (
     <>
@@ -453,7 +456,7 @@ export default async function Home() {
       </Container>
       <Portfolio />
       <Container className="m-auto mt-24 md:mt-28 ">
-        <div className="grid gap-24 md:grid-cols-2">
+        <div className="grid gap-24 lg:grid-cols-2">
           <Resume />
           <Newsletter />
         </div>
