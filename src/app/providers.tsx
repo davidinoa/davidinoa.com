@@ -1,8 +1,9 @@
 'use client'
 
-import { createContext, useEffect, useRef } from 'react'
-import { usePathname } from 'next/navigation'
 import { ThemeProvider, useTheme } from 'next-themes'
+import { usePathname } from 'next/navigation'
+import { createContext, useEffect, useRef } from 'react'
+import { Toaster } from 'react-hot-toast'
 
 function usePrevious<T>(value: T) {
   const ref = useRef<T>()
@@ -50,6 +51,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <ThemeWatcher />
         {children}
       </ThemeProvider>
+      <Toaster
+        toastOptions={{
+          className: 'text-center dark:bg-zinc-800 dark:text-white',
+        }}
+      />
     </AppContext.Provider>
   )
 }
