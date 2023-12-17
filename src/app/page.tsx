@@ -408,11 +408,17 @@ export default async function Home() {
             David Inoa <br />
             <span className="text-5xl">Web Engineer</span>
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reprehenderit rem iste delectus consequatur modi suscipit
-            reiciendis, ipsam tempore, eum nulla labore doloribus non iusto at
-            excepturi voluptate, numquam maxime placeat!
+          <p
+            className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
+            // @ts-expect-error experimental
+            style={{ textWrap: 'balance' }}
+          >
+            Hello there! I&apos;m a spirited web engineer committed to crafting
+            meaningful web experiences. I write software because I&apos;m
+            passionate about making things, learning, and contributing to
+            society. My curiosity and self-learning ethos drive me to
+            continuously explore the latest web technologies and advocate for
+            best practices in the ever-evolving digital landscape.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
