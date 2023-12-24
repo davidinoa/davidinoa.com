@@ -1,7 +1,7 @@
+import clsx from 'clsx'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import {
@@ -101,7 +101,7 @@ export default function About() {
           </div>
         </div>
         <div className="lg:pl-20">
-          <ul role="list">
+          <ul>
             <SocialLink href="#" icon={TwitterIcon}>
               Follow on Twitter
             </SocialLink>

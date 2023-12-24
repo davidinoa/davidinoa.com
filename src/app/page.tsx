@@ -118,6 +118,7 @@ interface Role {
   end: string | { label: string; dateTime: string }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 function Role({ role }: { role: Role }) {
   const startLabel =
     typeof role.start === 'string' ? role.start : role.start.label
@@ -213,8 +214,8 @@ function Resume() {
         <span className="ml-3">Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <Role key={roleIndex} role={role} />
+        {resume.map((role) => (
+          <Role key={role.toString()} role={role} />
         ))}
       </ol>
       <Button
@@ -293,6 +294,7 @@ function Carousel() {
               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
               rotations[imageIndex % rotations.length],
             )}
+            rel="noreferrer"
           >
             <Image
               src={image}
