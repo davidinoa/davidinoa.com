@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button'
 import ContactForm from '@/components/ContactForm'
 import { Container } from '@/components/Container'
+import { Prose } from '@/components/Prose'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import travisAvatar from '@/images/avatars/travis-tillman.jpeg'
 import wyattAvatar from '@/images/avatars/wyatt-thompson.jpeg'
@@ -319,72 +320,77 @@ function Portfolio() {
 
 function Testimonials() {
   return (
-    <section className="mt-10 rounded-2xl border border-zinc-100 py-8 dark:border-zinc-700/40">
-      <div className="mx-auto max-w-7xl px-10 ">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col pb-10 sm:pb-8 lg:pb-0 lg:pr-8 xl:pr-20">
-            <figure className="mt-0 flex flex-auto flex-col justify-between">
-              <blockquote className="text-base text-zinc-600 dark:text-zinc-400">
-                <p>
-                  “David is a joy to work with and is especially talented at
-                  rapid prototyping while writing clean and readable code. He
-                  can effortlessly deconstruct a complex problem into digestible
-                  parts, helping his entire team create elegant solutions
-                  efficiently. Many engineers write clean code, and most can
-                  find acceptable solutions in a crunch. David is the rare
-                  engineer that can can operate at the elusive intersection of
-                  efficiency and elegance.”
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-x-6">
-                <Image
-                  className="h-14 w-14 rounded-full bg-gray-800"
-                  src={travisAvatar}
-                  alt=""
-                />
-                <div className="text-sm">
-                  <div className="font-semibold text-zinc-800 dark:text-zinc-100">
-                    Travis Tillman
+    <Prose>
+      <section className="mt-10 rounded-2xl border border-zinc-100 py-8 dark:border-zinc-700/40">
+        <div className="mx-auto max-w-7xl px-6 md:px-12 ">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            <div className="flex flex-col pb-10 sm:pb-8 lg:pb-0 lg:pr-8 xl:pr-20">
+              <figure className="mt-0 flex flex-auto flex-col justify-between">
+                <blockquote className="border-none pl-0 text-center text-base font-semibold text-zinc-600 dark:text-zinc-400">
+                  <p className="m-0 text-sm md:text-base">
+                    “David is a joy to work with and is especially talented at
+                    rapid prototyping while writing clean and readable code. He
+                    can effortlessly deconstruct a complex problem into
+                    digestible parts, helping his entire team create elegant
+                    solutions efficiently.
+                  </p>
+                  <p className="m-0 mt-4 text-sm md:text-base">
+                    “Many engineers write clean code, and most can find
+                    acceptable solutions in a crunch. David is the rare engineer
+                    that can can operate at the elusive intersection of
+                    efficiency and elegance.”
+                  </p>
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-x-6">
+                  <Image
+                    className="h-14 w-14 rounded-full bg-gray-800"
+                    src={travisAvatar}
+                    alt="Avatar of Travis Tillman"
+                  />
+                  <div className="text-sm">
+                    <div className="font-semibold text-zinc-800 dark:text-zinc-100">
+                      Travis Tillman
+                    </div>
+                    <div className="text-zinc-400 dark:text-zinc-500">
+                      Software Engineer
+                    </div>
                   </div>
-                  <div className="text-zinc-400 dark:text-zinc-500">
-                    Entrepreneur & Software Engineer
+                </figcaption>
+              </figure>
+            </div>
+            <div className="flex flex-col border-t border-zinc-100 pt-10 dark:border-zinc-700/40 sm:pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:pl-20">
+              <figure className="mt-0 flex flex-auto flex-col justify-between">
+                <blockquote className="border-none pl-0 text-center text-base font-semibold text-zinc-600 dark:text-zinc-400">
+                  <p className="m-0 text-sm md:text-base">
+                    “I had the pleasure of working with David during his
+                    internship at Dollar Shave Club. David is the kind of person
+                    that charges into a problem, and comes up with the best
+                    solution. His technical literacy combined with natural UX
+                    skills will be a valuable asset to any team. Plus, he is an
+                    overall awesome person.”
+                  </p>
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-x-6">
+                  <Image
+                    className="h-14 w-14 rounded-full bg-gray-800"
+                    src={wyattAvatar}
+                    alt="Avatar of Wyatt Thompson"
+                  />
+                  <div className="text-sm">
+                    <div className="font-semibold text-zinc-800 dark:text-zinc-100">
+                      Wyatt Thompson
+                    </div>
+                    <div className="text-zinc-400 dark:text-zinc-500">
+                      Director of Product
+                    </div>
                   </div>
-                </div>
-              </figcaption>
-            </figure>
-          </div>
-          <div className="flex flex-col border-t border-zinc-100 pt-10 dark:border-zinc-700/40 sm:pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:pl-20">
-            <figure className="mt-0 flex flex-auto flex-col justify-between">
-              <blockquote className="text-base text-zinc-600 dark:text-zinc-400">
-                <p>
-                  “I had the pleasure of working with David during his
-                  internship at Dollar Shave Club. David is the kind of person
-                  that charges into a problem, and comes up with the best
-                  solution. His technical literacy combined with natural UX
-                  skills will be a valuable asset to any team. Plus, he is an
-                  overall awesome person.”
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-x-6">
-                <Image
-                  className="h-14 w-14 rounded-full bg-gray-800"
-                  src={wyattAvatar}
-                  alt=""
-                />
-                <div className="text-sm">
-                  <div className="font-semibold text-zinc-800 dark:text-zinc-100">
-                    Wyatt Thompson
-                  </div>
-                  <div className="text-zinc-400 dark:text-zinc-500">
-                    Director of Product
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Prose>
   )
 }
 
