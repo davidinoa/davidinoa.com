@@ -256,14 +256,6 @@ function Carousel() {
     },
   ]
 
-  const rotations = [
-    'rotate-2',
-    '-rotate-2',
-    'rotate-2',
-    '-rotate-2',
-    'rotate-2',
-  ]
-
   const externalLinkIcon = (
     <svg
       width="24px"
@@ -283,34 +275,31 @@ function Carousel() {
   )
 
   return (
-    <div className="mt-4 sm:mt-8">
-      <div className="my-4 flex gap-5 py-8 sm:gap-8">
-        {projects.map(({ image, url, name }, imageIndex) => (
-          <a
-            key={image.src}
-            href={url}
-            target="_blank"
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length],
-            )}
-            rel="noreferrer"
-          >
-            <Image
-              src={image}
-              alt={name}
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 grid place-items-center rounded-xl border-2 border-teal-500 bg-black p-2 text-center text-xl font-bold uppercase text-white opacity-0 transition-opacity duration-500 hover:opacity-90 sm:rounded-2xl">
-              <span className="flex flex-col items-center">
-                {name}
-                {externalLinkIcon}
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
+    <div className="my-4 flex gap-5 py-8 sm:gap-8">
+      {projects.map(({ image, url, name }) => (
+        <a
+          key={image.src}
+          href={url}
+          target="_blank"
+          className={clsx(
+            'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+          )}
+          rel="noreferrer"
+        >
+          <Image
+            src={image}
+            alt={name}
+            sizes="(min-width: 640px) 18rem, 11rem"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 grid place-items-center rounded-xl border-2 border-teal-500 bg-black p-2 text-center text-xl font-bold uppercase text-white opacity-0 transition-opacity duration-500 hover:opacity-90 sm:rounded-2xl">
+            <span className="flex flex-col items-center">
+              {name}
+              {externalLinkIcon}
+            </span>
+          </div>
+        </a>
+      ))}
     </div>
   )
 }
@@ -319,9 +308,9 @@ function Portfolio() {
   return (
     <article>
       <Container className="mt-16">
-        <h2 className="text-3xl font-bold">Recent projects</h2>
+        <h2 className="text-2xl font-bold">Recent projects</h2>
       </Container>
-      <div className="max-w-screen grid place-items-center overflow-auto">
+      <div className="max-w-screen grid place-items-center overflow-auto px-8">
         <Carousel />
       </div>
     </article>
@@ -440,7 +429,7 @@ export default async function Home() {
         <Testimonials />
       </Container>
       <Portfolio />
-      <Container className="m-auto mt-24 md:mt-28 ">
+      <Container className="m-auto mt-6 md:mt-10 ">
         <div className="grid gap-24 lg:grid-cols-2">
           <Resume />
           <ContactForm />
