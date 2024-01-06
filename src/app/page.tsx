@@ -277,7 +277,7 @@ function Carousel() {
             className="h-4/5 w-full object-cover"
           />
           <section className="flex h-1/5 flex-col px-4 py-2">
-            <h3 className="w-full flex-none text-sm font-bold text-zinc-900 dark:text-zinc-100">
+            <h3 className="w-full flex-none text-sm font-bold leading-tight text-zinc-900 dark:text-zinc-100">
               {name}
             </h3>
             <div className="flex gap-4 text-xs text-zinc-500  dark:text-zinc-400">
