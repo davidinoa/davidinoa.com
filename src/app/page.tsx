@@ -238,68 +238,81 @@ function Carousel() {
     {
       name: 'Pomodoro',
       image: pomodoroImage,
-      url: 'https://pomodoro-di.vercel.app/',
+      demoUrl: 'https://pomodoro-di.vercel.app/',
+      codeUrl: 'https://github.com/davidinoa/pomodoro-app',
     },
     {
       name: 'Secure Password Generator',
       image: passwordGeneratorImage,
-      url: 'https://password-generator-di.vercel.app/',
+      demoUrl: 'https://password-generator-di.vercel.app/',
+      codeUrl: 'https://github.com/davidinoa/password-generator',
     },
     {
       name: 'React Wordle',
       image: reactWordleImage,
-      url: 'https://react-wordle-di.vercel.app/',
+      demoUrl: 'https://react-wordle-di.vercel.app/',
+      codeUrl: 'https://github.com/davidinoa/react-wordle',
     },
     {
       name: 'Dictionary',
       image: dictionaryImage,
-      url: 'https://dictionary-di.vercel.app/',
+      demoUrl: 'https://dictionary-di.vercel.app/',
+      codeUrl: 'https://github.com/davidinoa/dictionary-web-app',
     },
   ]
 
-  const externalLinkIcon = (
-    <svg
-      width="24px"
-      height="24px"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      fill="none"
-    >
-      <path
-        d="M10 5H8.2c-1.12 0-1.68 0-2.108.218a1.999 1.999 0 0 0-.874.874C5 6.52 5 7.08 5 8.2v7.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874c.427.218.987.218 2.105.218h7.606c1.118 0 1.677 0 2.104-.218.377-.192.683-.498.875-.874.218-.428.218-.987.218-2.105V14m1-5V4m0 0h-5m5 0-7 7"
-        stroke="#fff"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-
   return (
     <div className="my-4 flex gap-5 py-8 sm:gap-8">
-      {projects.map(({ image, url, name }) => (
-        <a
+      {projects.map(({ image, name, demoUrl, codeUrl }) => (
+        <div
           key={image.src}
-          href={url}
-          target="_blank"
           className={clsx(
-            'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+            'order relative aspect-[9/10] w-[16rem] flex-none overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-700/40 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
           )}
-          rel="noreferrer"
         >
           <Image
             src={image}
             alt={name}
             sizes="(min-width: 640px) 18rem, 11rem"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="h-4/5 w-full object-cover"
           />
-          <div className="absolute inset-0 grid place-items-center rounded-xl border-2 border-teal-500 bg-black p-2 text-center text-xl font-bold uppercase text-white opacity-0 transition-opacity duration-500 hover:opacity-90 sm:rounded-2xl">
-            <span className="flex flex-col items-center">
+          <section className="flex h-1/5 flex-col px-4 py-2">
+            <h3 className="w-full flex-none text-sm font-bold text-zinc-900 dark:text-zinc-100">
               {name}
-              {externalLinkIcon}
-            </span>
-          </div>
-        </a>
+            </h3>
+            <div className="flex gap-4 text-xs text-zinc-500  dark:text-zinc-400">
+              <a
+                href={demoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1 hover:text-teal-400"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="h-4 w-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+                Demo
+              </a>
+              <a
+                href={codeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-1 hover:text-teal-400"
+              >
+                <GitHubIcon className="h-4 w-4 fill-zinc-500 transition  group-hover:fill-teal-400 dark:fill-zinc-400" />
+                Code
+              </a>
+            </div>
+          </section>
+        </div>
       ))}
     </div>
   )

@@ -1,0 +1,156 @@
+section {
+  --card-size: 200px;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+ul {
+  --width: 100%;
+  width: var(--width);
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+  gap: 1rem;
+  overflow: auto;
+  padding: 0 calc((var(--width, 80vw) * 0.5) - (var(--card-size, 300px) * 0.5));
+}
+
+article {
+  width: var(--card-size, 300px);
+  aspect-ratio: 3 / 4;
+  background: var(--surface-4);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-3);
+  box-shadow:
+    var(--shadow-5),
+    0 1px inset white;
+}
+
+article::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: var(--radius-3);
+  border: 6px solid hsl(0 0% 100% / 0.1);
+}
+
+/* .backdrop */
+article::after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  filter: grayscale(0.5);
+  background-image: var(--bg);
+  background-size: 125% auto;
+  background-position: 0% 50%;
+}
+
+.word {
+  clip-path: inset(0 0 0 0);
+}
+
+span > span {
+  display: inline-block;
+}
+
+a > span {
+  background: hsl(0 0% 0% / 0.4);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+span {
+  font-size: 2.5rem;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  color: var(--gray-0);
+}
+
+span > span {
+  button {
+    text-transform: uppercase;
+  }
+  font-size: 14px;
+  align-self: end;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    span > span {
+      translate: 0 100%;
+      animation: move-on-up both ease-in-out;
+      animation-timeline: --item;
+      animation-range: cover 40% cover 60%;
+    }
+    article {
+      scale: 0.8;
+      filter: grayscale(1);
+      animation: colorify, scalify;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out;
+      view-timeline: --item inline;
+      animation-timeline: view(inline);
+      animation-range: cover 40% cover 60%;
+    }
+    article::after {
+      animation: shift-bg both linear;
+      animation-timeline: --item;
+      animation-range:
+        cover 40% cover 60%,
+        contain;
+    }
+    @keyframes move-on-up {
+      0% {
+        translate: 0 100%;
+      }
+      50% {
+        translate: 0 0;
+      }
+      100% {
+        translate: 0 -100%;
+      }
+    }
+    @keyframes colorify {
+      50% {
+        filter: grayscale(0);
+      }
+    }
+    @keyframes scalify {
+      50% {
+        scale: 1;
+        background-position: 100% 100%;
+      }
+    }
+    @keyframes shift-bg {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+  }
+}
