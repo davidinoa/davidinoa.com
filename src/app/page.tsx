@@ -5,6 +5,7 @@ import { Prose } from '@/components/Prose'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import travisAvatar from '@/images/avatars/travis-tillman.jpeg'
 import wyattAvatar from '@/images/avatars/wyatt-thompson.jpeg'
+import audiophileImage from '@/images/portfolio/audiophile.png'
 import dictionaryImage from '@/images/portfolio/dictionary.png'
 import passwordGeneratorImage from '@/images/portfolio/password-generator.png'
 import pomodoroImage from '@/images/portfolio/pomodoro.png'
@@ -240,6 +241,12 @@ function Carousel() {
       image: pomodoroImage,
       demoUrl: 'https://pomodoro-di.vercel.app/',
       codeUrl: 'https://github.com/davidinoa/pomodoro-app',
+    },
+    {
+      name: 'Audiophile',
+      image: audiophileImage,
+      demoUrl: 'https://audiophile-di.vercel.app/',
+      codeUrl: 'https://github.com/davidinoa/audiophile',
     },
     {
       name: 'Secure Password Generator',
