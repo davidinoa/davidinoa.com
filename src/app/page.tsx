@@ -7,6 +7,7 @@ import travisAvatar from '@/images/avatars/travis-tillman.jpeg'
 import wyattAvatar from '@/images/avatars/wyatt-thompson.jpeg'
 import audiophileImage from '@/images/portfolio/audiophile.png'
 import dictionaryImage from '@/images/portfolio/dictionary.png'
+import kanbanImage from '@/images/portfolio/kanban.png'
 import passwordGeneratorImage from '@/images/portfolio/password-generator.png'
 import pomodoroImage from '@/images/portfolio/pomodoro.png'
 import reactWordleImage from '@/images/portfolio/react-wordle.png'
@@ -243,6 +244,12 @@ function Carousel() {
       codeUrl: 'https://github.com/davidinoa/pomodoro-app',
     },
     {
+      name: 'Kanban',
+      image: kanbanImage,
+      demoUrl: 'https://kanban-dil.vercel.app/',
+      codeUrl: 'https://github.com/davidinoa/kanban-app',
+    },
+    {
       name: 'Audiophile',
       image: audiophileImage,
       demoUrl: 'https://audiophile-di.vercel.app/',
@@ -277,12 +284,14 @@ function Carousel() {
             'order relative aspect-[9/10] w-[16rem] flex-none overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-700/40 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
           )}
         >
-          <Image
-            src={image}
-            alt={name}
-            sizes="(min-width: 640px) 18rem, 11rem"
-            className="h-4/5 w-full object-cover"
-          />
+          <div className="h-4/5 overflow-clip pb-1">
+            <Image
+              src={image}
+              alt={name}
+              sizes="(min-width: 640px) 18rem, 11rem"
+              className="h-full w-full object-cover transition-all duration-700"
+            />
+          </div>
           <section className="flex h-1/5 flex-col px-4 py-2">
             <h3 className="w-full flex-none text-sm font-bold leading-tight text-zinc-900 dark:text-zinc-100">
               {name}
