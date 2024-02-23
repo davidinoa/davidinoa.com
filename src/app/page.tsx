@@ -340,7 +340,7 @@ function Portfolio() {
       <Container className="mt-16">
         <h2 className="text-2xl font-bold">Recent projects</h2>
       </Container>
-      <div className="max-w-screen grid place-items-center overflow-auto px-8">
+      <div className="m-auto grid max-w-[1400px] place-items-center overflow-auto px-8">
         <Carousel />
       </div>
     </article>
