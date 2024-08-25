@@ -393,6 +393,7 @@ export default async function Home() {
           </h1>
           <p
             className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
+            // @ts-ignore
             style={{ textWrap: 'balance' }}
           >
             Hello there! I&apos;m a spirited web engineer committed to crafting
