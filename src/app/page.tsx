@@ -5,12 +5,7 @@ import { Prose } from '@/components/Prose'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import travisAvatar from '@/images/avatars/travis-tillman.jpeg'
 import wyattAvatar from '@/images/avatars/wyatt-thompson.jpeg'
-import audiophileImage from '@/images/portfolio/audiophile.png'
-import dictionaryImage from '@/images/portfolio/dictionary.png'
-import kanbanImage from '@/images/portfolio/kanban.png'
-import passwordGeneratorImage from '@/images/portfolio/password-generator.png'
-import pomodoroImage from '@/images/portfolio/pomodoro.png'
-import reactWordleImage from '@/images/portfolio/react-wordle.png'
+
 import blackrockLogo from '@/images/resume/blackrock.jpeg'
 import dollarShaveClubLogo from '@/images/resume/dollar-shave-club.png'
 import geniusPlazaLogo from '@/images/resume/genius-plaza.webp'
@@ -19,6 +14,7 @@ import yieldxLogo from '@/images/resume/yieldx.jpeg'
 import clsx from 'clsx'
 import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
+import { projects } from './data'
 
 function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -236,45 +232,6 @@ function Resume() {
 }
 
 function Carousel() {
-  const projects = [
-    {
-      name: 'Pomodoro',
-      image: pomodoroImage,
-      demoUrl: 'https://pomodoro-di.vercel.app/',
-      codeUrl: 'https://github.com/davidinoa/pomodoro-app',
-    },
-    {
-      name: 'Kanban',
-      image: kanbanImage,
-      demoUrl: 'https://kanban-dil.vercel.app/',
-      codeUrl: 'https://github.com/davidinoa/kanban-app',
-    },
-    {
-      name: 'Audiophile',
-      image: audiophileImage,
-      demoUrl: 'https://audiophile-di.vercel.app/',
-      codeUrl: 'https://github.com/davidinoa/audiophile',
-    },
-    {
-      name: 'Secure Password Generator',
-      image: passwordGeneratorImage,
-      demoUrl: 'https://password-generator-di.vercel.app/',
-      codeUrl: 'https://github.com/davidinoa/password-generator',
-    },
-    {
-      name: 'React Wordle',
-      image: reactWordleImage,
-      demoUrl: 'https://react-wordle-di.vercel.app/',
-      codeUrl: 'https://github.com/davidinoa/react-wordle',
-    },
-    {
-      name: 'Dictionary',
-      image: dictionaryImage,
-      demoUrl: 'https://dictionary-di.vercel.app/',
-      codeUrl: 'https://github.com/davidinoa/dictionary-web-app',
-    },
-  ]
-
   return (
     <div className="my-4 flex gap-5 py-8 sm:gap-8">
       {projects.map(({ image, name, demoUrl, codeUrl }) => (
