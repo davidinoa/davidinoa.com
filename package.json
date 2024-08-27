@@ -17,6 +17,7 @@
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "13.4.16",
+    "@t3-oss/env-nextjs": "^0.11.1",
     "@tailwindcss/typography": "^0.5.4",
     "@types/node": "20.4.7",
     "@types/react": "18.2.20",
@@ -27,6 +28,7 @@
     "clsx": "^1.2.1",
     "fast-glob": "^3.2.11",
     "feed": "^4.2.2",
+    "jiti": "^1.21.6",
     "next": "^14.0.4",
     "next-themes": "^0.2.1",
     "posthog-js": "^1.157.2",
@@ -34,7 +36,8 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "remark-gfm": "^3.0.1",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
