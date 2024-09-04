@@ -103,10 +103,7 @@ export default function Resume() {
       title: 'UI Engineer',
       logo: inspiratoLogo,
       start: '2021',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      end: '2024',
     },
     {
       company: 'BlackRock',
