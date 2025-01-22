@@ -1,5 +1,6 @@
 import { Button } from '@/components/Button'
 import blackrockLogo from '@/images/resume/blackrock.jpeg'
+import ciscoLogo from '@/images/resume/cisco.svg'
 import dollarShaveClubLogo from '@/images/resume/dollar-shave-club.png'
 import geniusPlazaLogo from '@/images/resume/genius-plaza.webp'
 import inspiratoLogo from '@/images/resume/inspirato.jpeg'
@@ -99,6 +100,14 @@ function Role({ role }: { role: RoleType }) {
 export default function Resume() {
   const resume: Array<RoleType> = [
     {
+      company: 'Cisco',
+      title: 'Software Engineer',
+      logo: ciscoLogo,
+      start: '2024',
+      end: '2025',
+    },
+
+    {
       company: 'Inspirato',
       title: 'UI Engineer',
       logo: inspiratoLogo,
@@ -147,7 +156,7 @@ export default function Resume() {
         ))}
       </ol>
       <Button
-        href="/david-inoa.pdf"
+        href="/David-Inoa-Resume.pdf"
         target="_blank"
         variant="secondary"
         className="group mt-6 w-full"
