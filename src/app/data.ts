@@ -27,7 +27,7 @@ export const projects = [
   {
     name: 'Secure Password Generator',
     image: passwordGeneratorImage,
-    demoUrl: 'https://password-generator-di.vercel.app/',
+    demoUrl: 'https://password-generator.davidinoa.com/',
     codeUrl: 'https://github.com/davidinoa/password-generator',
   },
   {

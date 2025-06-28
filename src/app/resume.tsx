@@ -104,7 +104,7 @@ export default function Resume() {
       title: 'Software Engineer',
       logo: ciscoLogo,
       start: '2024',
-      end: '2025',
+      end: 'Present',
     },
 
     {
